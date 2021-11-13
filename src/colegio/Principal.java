@@ -62,6 +62,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MENU_PRINCIPAL");
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,6 +120,9 @@ public class Principal extends javax.swing.JFrame {
 
         painel_estudante.setBackground(new java.awt.Color(255, 255, 255));
         painel_estudante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                painel_estudanteMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 painel_estudanteMouseEntered(evt);
             }
@@ -542,6 +546,13 @@ public class Principal extends javax.swing.JFrame {
     private void painel_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painel_sairMouseExited
          resetColor(painel_sair);
     }//GEN-LAST:event_painel_sairMouseExited
+
+    private void painel_estudanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painel_estudanteMouseClicked
+       Menu_Estudante menu_estudante = new Menu_Estudante();
+        menu_estudante.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_painel_estudanteMouseClicked
     //Método para configurar hover com cores no background
     private void setColor(JPanel panel) {
         panel.setBackground(new java.awt.Color(34, 87, 122));

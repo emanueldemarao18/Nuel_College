@@ -9,7 +9,7 @@ package colegio;
  *
  * @author emanueldemarao
  */
-public class Pessoa {
+abstract public class Pessoa {
 
     private String nome, genero, estado_civil;
     private int idade;

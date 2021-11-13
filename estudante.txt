@@ -1,0 +1,6 @@
+oiNome:Emanuel
+idade:10
+oiNome:Leonardo
+idade:14
+oiNome:Cristiano
+idade:17
