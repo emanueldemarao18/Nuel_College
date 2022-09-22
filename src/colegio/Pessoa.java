@@ -13,7 +13,9 @@ abstract public class Pessoa {
 
     private String nome, genero, estado_civil;
     private int idade;
-    private double altura, peso;
+    private String altura,peso;
+   
+    
 
     public String getNome() {
         return nome;
@@ -47,20 +49,25 @@ abstract public class Pessoa {
         this.idade = idade;
     }
 
-    public double getAltura() {
+    public String getAltura() {
         return altura;
     }
 
-    public void setAltura(double altura) {
+    public void setAltura(String altura) {
         this.altura = altura;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
+   
+
+    
+
+  
 }

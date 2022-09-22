@@ -1,6 +1,9 @@
-oiNome:Emanuel
-idade:10
-oiNome:Leonardo
-idade:14
-oiNome:Cristiano
-idade:17
+Emanuel*6*Masculino* ,  *  . *Solteiro*CAASTRANDO*math*1
+xvgjf*6*Masculino* ,  *  . *Solteiro*mmm*math*2
+hjvhjk*6*Masculino* ,  *  . *Solteiro*mmm*math*3
+gg*6*Masculino* ,  *  . *Solteiro*CAASTRANDO*teste*4
+uiuiooi*6*Masculino*2,34*12.3*Solteiro*mmm*math*5
+b*6*Masculino* ,  *  . *Solteiro*CAASTRANDO* *6
+bj*6*Masculino* ,  *  . *Solteiro*CAASTRANDO* *7
+Emanuel*6*Masculino*1,78*60.0*Solteiro*CAASTRANDO*teste*8
+

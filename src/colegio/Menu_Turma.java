@@ -5,17 +5,41 @@
  */
 package colegio;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author emanueldemarao
  */
 public class Menu_Turma extends javax.swing.JFrame {
-
+    ArrayList<Turma> turmas = new ArrayList<>();
+    ArrayList<Curso> cursos = new ArrayList<>();
+    ArrayList<Estudante> estudantes = new ArrayList<>();
+    ArrayList<Docente> docentes = new ArrayList<>();
     /**
      * Creates new form Menu_Turma
      */
     public Menu_Turma() {
         initComponents();
+        turmas = new Turma().ler();
+        cursos = new Curso().ler();
+         estudantes = new Estudante().ler();
+         docentes = new Docente().ler();
+         Transferir_Curso();
+         Transferir_turma();
+    }
+    
+    public void Transferir_turma() {
+          for(Turma t: turmas) {
+            combo_turma.addItem(t.getDescricao());
+        }
+    }
+    
+    public void Transferir_Curso() {
+          for(Curso c: cursos) {
+            combo_curso.addItem(c.getDescricao());
+        }
     }
 
     /**
@@ -27,34 +51,54 @@ public class Menu_Turma extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        Painel_Turma = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         sair = new javax.swing.JLabel();
-        painel_cadastrar_turma = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        painel_consultar_Listar_Turmas = new javax.swing.JPanel();
+        combo_turma = new javax.swing.JComboBox();
+        combo_curso = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        painel_menu_principal = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        estud = new javax.swing.JButton();
+        prof = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        Painel_Turma.setBackground(new java.awt.Color(255, 255, 255));
+        Painel_Turma.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 4, 58));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("TURMAS");
+        jLabel17.setText("LISTAGEM ESTUDANTE-PROFESSOR");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("ÁREA PARA GESTÃO DAS TURMAS DO COLÉGIO");
+        jLabel18.setText("NUEL COLLEGE");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
         sair.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         sair.setForeground(new java.awt.Color(255, 255, 255));
@@ -64,172 +108,67 @@ public class Menu_Turma extends javax.swing.JFrame {
                 sairMousePressed(evt);
             }
         });
+        jPanel2.add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(821, 0, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(sair)
-                .addGap(277, 277, 277))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(jLabel18))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(343, 343, 343)
-                        .addComponent(jLabel17)))
-                .addContainerGap(518, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(sair)
-                .addGap(19, 19, 19)
-                .addComponent(jLabel17)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel18)
-                .addContainerGap(91, Short.MAX_VALUE))
-        );
+        jPanel2.add(combo_turma, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
-        painel_cadastrar_turma.setBackground(new java.awt.Color(255, 255, 255));
-        painel_cadastrar_turma.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                painel_cadastrar_turmaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                painel_cadastrar_turmaMouseExited(evt);
+        jPanel2.add(combo_curso, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("CURSO");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("TURMA");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        estud.setText("Listar Estudante");
+        estud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estudActionPerformed(evt);
             }
         });
+        jPanel2.add(estud, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
-        jLabel2.setBackground(new java.awt.Color(0, 4, 58));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("CADASTRAR");
+        prof.setText("Listar Professor");
+        prof.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profActionPerformed(evt);
+            }
+        });
+        jPanel2.add(prof, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8_classroom_55px_2.png"))); // NOI18N
+        jButton1.setText("MENU");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout painel_cadastrar_turmaLayout = new javax.swing.GroupLayout(painel_cadastrar_turma);
-        painel_cadastrar_turma.setLayout(painel_cadastrar_turmaLayout);
-        painel_cadastrar_turmaLayout.setHorizontalGroup(
-            painel_cadastrar_turmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painel_cadastrar_turmaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(painel_cadastrar_turmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(painel_cadastrar_turmaLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel3)))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        painel_cadastrar_turmaLayout.setVerticalGroup(
-            painel_cadastrar_turmaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_cadastrar_turmaLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18))
-        );
+        Painel_Turma.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 200));
 
-        painel_consultar_Listar_Turmas.setBackground(new java.awt.Color(255, 255, 255));
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8_search_property_55px.png"))); // NOI18N
+            },
+            new String [] {
+                "Nome"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("CONSULTAR E LISTAR");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(Tabela);
 
-        javax.swing.GroupLayout painel_consultar_Listar_TurmasLayout = new javax.swing.GroupLayout(painel_consultar_Listar_Turmas);
-        painel_consultar_Listar_Turmas.setLayout(painel_consultar_Listar_TurmasLayout);
-        painel_consultar_Listar_TurmasLayout.setHorizontalGroup(
-            painel_consultar_Listar_TurmasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painel_consultar_Listar_TurmasLayout.createSequentialGroup()
-                .addComponent(jLabel4)
-                .addGap(0, 3, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_consultar_Listar_TurmasLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(38, 38, 38))
-        );
-        painel_consultar_Listar_TurmasLayout.setVerticalGroup(
-            painel_consultar_Listar_TurmasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_consultar_Listar_TurmasLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addGap(21, 21, 21))
-        );
+        Painel_Turma.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 790, 320));
 
-        painel_menu_principal.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8_home_55px.png"))); // NOI18N
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("MENU PRINCIPAL");
-
-        javax.swing.GroupLayout painel_menu_principalLayout = new javax.swing.GroupLayout(painel_menu_principal);
-        painel_menu_principal.setLayout(painel_menu_principalLayout);
-        painel_menu_principalLayout.setHorizontalGroup(
-            painel_menu_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painel_menu_principalLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addContainerGap())
-            .addGroup(painel_menu_principalLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        painel_menu_principalLayout.setVerticalGroup(
-            painel_menu_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painel_menu_principalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(painel_cadastrar_turma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143)
-                .addComponent(painel_consultar_Listar_Turmas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155)
-                .addComponent(painel_menu_principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(painel_cadastrar_turma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(painel_consultar_Listar_Turmas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(painel_menu_principal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(Painel_Turma, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,13 +177,52 @@ public class Menu_Turma extends javax.swing.JFrame {
 
     }//GEN-LAST:event_sairMousePressed
 
-    private void painel_cadastrar_turmaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painel_cadastrar_turmaMouseEntered
+    private void estudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estudActionPerformed
+        DefaultTableModel t = (DefaultTableModel) Tabela.getModel();
+        int linhas = t.getRowCount();
 
-    }//GEN-LAST:event_painel_cadastrar_turmaMouseEntered
+        for (int i = linhas - 1; i >= 0; i--) {
+            t.removeRow(i);
+        }
+        for (Estudante dados : estudantes) {
+            if(combo_curso.getSelectedItem().equals(dados.getCurso()) && combo_turma.getSelectedItem().equals(dados.getTurma())){
+                
+           
+            Object[] lista_estudante
+                    = {
+                        dados.getNome()
+                    };
+            t.addRow(lista_estudante);
+        }
+        }
+    }//GEN-LAST:event_estudActionPerformed
 
-    private void painel_cadastrar_turmaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painel_cadastrar_turmaMouseExited
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Principal p = new Principal();
+        p.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    }//GEN-LAST:event_painel_cadastrar_turmaMouseExited
+    private void profActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profActionPerformed
+         DefaultTableModel t = (DefaultTableModel) Tabela.getModel();
+        int linhas = t.getRowCount();
+
+        for (int i = linhas - 1; i >= 0; i--) {
+            t.removeRow(i);
+        }
+        for (Docente dados : docentes) {
+            if( combo_turma.getSelectedItem().equals(dados.getTurma())){
+                
+           
+            Object[] lista_docente
+                    = {
+                        dados.getNome()
+                    };
+            t.addRow(lista_docente);
+            System.out.println(dados.getNome());
+        }
+        }
+    }//GEN-LAST:event_profActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,7 +235,7 @@ public class Menu_Turma extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -282,19 +260,21 @@ public class Menu_Turma extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Painel_Turma;
+    private javax.swing.JTable Tabela;
+    private javax.swing.JComboBox combo_curso;
+    private javax.swing.JComboBox combo_turma;
+    private javax.swing.JButton estud;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel painel_cadastrar_turma;
-    private javax.swing.JPanel painel_consultar_Listar_Turmas;
-    private javax.swing.JPanel painel_menu_principal;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton prof;
     private javax.swing.JLabel sair;
     // End of variables declaration//GEN-END:variables
 }
